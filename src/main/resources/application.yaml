@@ -1,0 +1,18 @@
+fbi:
+  url: https://www.fbi.gov/wanted
+
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.Oracle11cDialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+    username: RM94945
+    password: 250599
+    driver-class-name: oracle.jdbc.driver.OracleDriver
