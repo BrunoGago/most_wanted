@@ -1,5 +1,5 @@
 fbi:
-  url: https://www.fbi.gov/wanted
+  url: 'https://www.fbi.gov/wanted'
 
 spring:
   jpa:
