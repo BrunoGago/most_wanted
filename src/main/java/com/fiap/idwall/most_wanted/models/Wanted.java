@@ -12,6 +12,7 @@ import lombok.Data;
 @Table(name = "TB_WANTED_FBI")
 @Data
 public class Wanted {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", length = 9, nullable = false, unique = true)
