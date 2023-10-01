@@ -1,5 +1,7 @@
 package com.fiap.idwall.most_wanted.models;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,12 +13,10 @@ import lombok.Data;
 @Entity(name = "wanted_fbi")
 @Table(name = "TB_WANTED_FBI")
 @Data
-<<<<<<< HEAD:src/main/java/com/fiap/idwall/most_wanted/models/WantedFBI.java
-public class WantedFBI {
-=======
-public class Wanted {
-    
->>>>>>> 85963ef00ccf0e96ebfa20cc00fdfbe21f7a3282:src/main/java/com/fiap/idwall/most_wanted/models/Wanted.java
+public class WantedFBI implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", length = 9, nullable = false, unique = true)

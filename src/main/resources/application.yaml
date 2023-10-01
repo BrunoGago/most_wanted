@@ -4,13 +4,13 @@ fbi:
 spring:
   datasource:
     url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
-<<<<<<< HEAD
+
     username: RM94945
     password: 250599
-=======
-    username: RM93790
-    password: 290897
->>>>>>> 85963ef00ccf0e96ebfa20cc00fdfbe21f7a3282
+
+    # username: RM93790
+    # password: 290897
+
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     database-platform: org.hibernate.dialect.Oracle12cDialect
