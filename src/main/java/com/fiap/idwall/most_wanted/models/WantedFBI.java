@@ -22,17 +22,20 @@ public class WantedFBI implements Serializable {
     @Column(name = "ID", length = 9, nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "CRIME", length = 55, nullable = false)
+    @Column(name = "CRIME", length = 100)
     private String crime;
 
-    @Column(name = "FULL_NAME", length = 55, nullable = false)
+    @Column(name = "FULL_NAME", length = 100)
     private String fullName;
 
-    @Column(name = "DETAILS_URL", length = 100, nullable = false)
+    @Column(name = "DETAILS_URL", length = 300)
     private String detailsUrl;
 
-    @Column(name = "IMAGE_URL", length = 100, nullable = false)
+    @Column(name = "IMAGE_URL", length = 300)
     private String imageUrl;
+
+    public WantedFBI() {
+    }
 
     public WantedFBI(String crime, String name, String detailsUrl, String imageUrl) {
         this.crime = crime;

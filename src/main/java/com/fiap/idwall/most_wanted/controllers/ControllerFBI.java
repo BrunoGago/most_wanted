@@ -43,8 +43,7 @@ public class ControllerFBI {
 
     @GetMapping()
     public ResponseEntity<List<WantedFBI>> findTerrorists() throws IOException, InterruptedException {
-        String complementUrl = "/fugitives";
-        List<WantedFBI> wanted = services.WebServiceFbi(complementUrl);
+        List<WantedFBI> wanted = services.getAll();
         return ResponseEntity.ok().body(wanted);
     }
 
