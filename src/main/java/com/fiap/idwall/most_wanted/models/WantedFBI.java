@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity(name = "wanted_fbi")
 @Table(name = "TB_WANTED_FBI")
 @Data
-public class Wanted {
+public class WantedFBI {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", length = 9, nullable = false, unique = true)
@@ -29,7 +29,7 @@ public class Wanted {
     @Column(name = "IMAGE_URL", length = 100, nullable = false)
     private String imageUrl;
 
-    public Wanted(String crime, String name, String detailsUrl, String imageUrl) {
+    public WantedFBI(String crime, String name, String detailsUrl, String imageUrl) {
         this.crime = crime;
         this.fullName = name;
         this.detailsUrl = detailsUrl;

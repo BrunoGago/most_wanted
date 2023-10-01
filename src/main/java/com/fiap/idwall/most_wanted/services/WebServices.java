@@ -12,17 +12,17 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.fiap.idwall.most_wanted.models.Wanted;
+import com.fiap.idwall.most_wanted.models.WantedFBI;
 
 @Service
 public class WebServices {
     @Value("${fbi.url}")
-    public String url;
+    public String fbiUrl;
 
-    public List<Wanted> WebService(String complementUrl) throws IOException {
+    public List<WantedFBI> WebServiceFbi(String complementUrl) throws IOException {
 
         // Conectar à página da web e definir o User-Agent
-        Connection connection = Jsoup.connect(url + complementUrl)
+        Connection connection = Jsoup.connect(fbiUrl + complementUrl)
                 .userAgent(
                         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5454.0 Safari/537.36 Edg/105.0.5454.0");
 
@@ -32,7 +32,7 @@ public class WebServices {
         // Encontrar os elementos desejados na página usando seletores CSS
         Elements wantedItems = document.select(".portal-type-person");
 
-        List<Wanted> wantedReturn = new ArrayList<>();
+        List<WantedFBI> wantedReturn = new ArrayList<>();
 
         // Iterar pelos elementos e extrair informações
         for (Element item : wantedItems) {
@@ -43,7 +43,7 @@ public class WebServices {
             Element image = item.select("img").first();
             String imageUrl = image.attr("src");
 
-            Wanted wantedTemp = new Wanted(crime, name, detailsUrl, imageUrl);
+            WantedFBI wantedTemp = new WantedFBI(crime, name, detailsUrl, imageUrl);
 
             wantedReturn.add(wantedTemp);
 
@@ -57,4 +57,5 @@ public class WebServices {
 
         return wantedReturn;
     }
+
 }

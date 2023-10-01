@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fiap.idwall.most_wanted.models.Wanted;
+import com.fiap.idwall.most_wanted.models.WantedFBI;
 import com.fiap.idwall.most_wanted.services.WebServices;
 
 @RestController
 @RequestMapping("/fbi")
-public class Controller {
+public class ControllerFBI {
 
     @Autowired
     WebServices services;
 
     @GetMapping()
-    public ResponseEntity<List<Wanted>> findWanted() throws IOException {
+    public ResponseEntity<List<WantedFBI>> findTerrorists() throws IOException {
         String complementUrl = "/terrorism";
-        List<Wanted> wanted = services.WebService(complementUrl);
+        List<WantedFBI> wanted = services.WebServiceFbi(complementUrl);
         return ResponseEntity.ok().body(wanted);
     }
 
