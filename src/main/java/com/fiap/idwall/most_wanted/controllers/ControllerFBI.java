@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fiap.idwall.most_wanted.models.WantedFBI;
+import com.fiap.idwall.most_wanted.models.WantedInterpol;
 import com.fiap.idwall.most_wanted.services.WebServiceFbi;
 
 @RestController
@@ -36,7 +37,7 @@ public class ControllerFBI {
         list.add("/vicap/unidentified-persons");
         list.add("/bank-robbers");
 
-        services.InsertPersonOnBase(list);
+        services.insertPersonOnBase(list);
 
         return ResponseEntity.ok().body(null);
     }

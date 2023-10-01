@@ -22,14 +22,20 @@ public class ControllerInterpol {
 
     @PostMapping
     public ResponseEntity<WantedInterpol> includePerson() throws IOException, InterruptedException {
-        services.InsertPersonOnBase();
+        services.insertPersonOnBase();
         return ResponseEntity.ok().body(null);
     }
 
     @GetMapping()
-    public ResponseEntity<List<WantedInterpol>> findAll() throws IOException, InterruptedException {
-        List<WantedInterpol> wanted = services.getAll();
+    public ResponseEntity<List<WantedInterpol>> getInterpol() throws IOException, InterruptedException {
+        List<WantedInterpol> wanted = services.serviceInterpol();
         return ResponseEntity.ok().body(wanted);
     }
+
+    // @GetMapping()
+    // public ResponseEntity<List<WantedInterpol>> findAll() throws IOException, InterruptedException {
+    //     List<WantedInterpol> wanted = services.getAll();
+    //     return ResponseEntity.ok().body(wanted);
+    // }
 
 }

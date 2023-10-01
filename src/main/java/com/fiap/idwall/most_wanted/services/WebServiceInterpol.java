@@ -26,7 +26,7 @@ public class WebServiceInterpol {
     @Autowired
     private InterpolRepository repository;
 
-    private List<WantedInterpol> ServiceInterpol() throws IOException, InterruptedException {
+    public List<WantedInterpol> serviceInterpol() throws IOException, InterruptedException {
 
         // Conecte-se à página da web
         Connection connection = Jsoup.connect(interpolUrl)
@@ -36,7 +36,7 @@ public class WebServiceInterpol {
         Document doc = connection.get();
 
         // Selecione os elementos desejados usando seletores CSS
-        Elements redNotices = doc.select(".redNoticesList__item notice_red");
+        Elements redNotices = doc.select(".redNoticeItem__text");
 
         List<WantedInterpol> wantedReturn = new ArrayList<>();
 
@@ -57,9 +57,9 @@ public class WebServiceInterpol {
         return wantedReturn;
     }
 
-    public void InsertPersonOnBase() throws IOException, InterruptedException {
+    public void insertPersonOnBase() throws IOException, InterruptedException {
 
-        List<WantedInterpol> model = ServiceInterpol();
+        List<WantedInterpol> model = serviceInterpol();
         for (WantedInterpol wanted : model) {
             repository.save(wanted);
         }

@@ -25,7 +25,7 @@ public class WebServiceFbi {
     @Autowired
     private FbiRepository repository;
 
-    public List<WantedFBI> ServiceFbi(String complementUrl) throws IOException, InterruptedException {
+    public List<WantedFBI> serviceFbi(String complementUrl) throws IOException, InterruptedException {
 
         // Conectar à página da web e definir o User-Agent
         Connection connection = Jsoup.connect(fbiUrl + complementUrl)
@@ -57,10 +57,10 @@ public class WebServiceFbi {
         return wantedReturn;
     }
 
-    public void InsertPersonOnBase(List<String> list) throws IOException, InterruptedException {
+    public void insertPersonOnBase(List<String> list) throws IOException, InterruptedException {
 
         for (String url : list) {
-            List<WantedFBI> model = ServiceFbi(url);
+            List<WantedFBI> model = serviceFbi(url);
             for (WantedFBI wanted : model) {
                 repository.save(wanted);
             }
