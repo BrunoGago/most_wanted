@@ -8,6 +8,6 @@ public class MostWantedApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MostWantedApplication.class, args);
-	}
 
+	}
 }

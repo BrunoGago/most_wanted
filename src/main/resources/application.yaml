@@ -1,18 +1,22 @@
 fbi:
-  url: https://www.fbi.gov/wanted
+  url: 'https://www.fbi.gov/wanted'
 
+interpol:
+  url: 'https://www.interpol.int/How-we-work/Notices/Red-Notices/View-Red-Notices'
+  
 spring:
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.Oracle11cDialect
-  jmx:
-    enabled: false
   datasource:
     url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
-    username: RM94945
-    password: 250599
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+    # username: RM94945
+    # password: 250599
+
+    username: RM93790
+    password: 290897
+
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
