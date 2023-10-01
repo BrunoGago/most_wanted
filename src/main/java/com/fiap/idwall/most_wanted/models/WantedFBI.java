@@ -11,7 +11,12 @@ import lombok.Data;
 @Entity(name = "wanted_fbi")
 @Table(name = "TB_WANTED_FBI")
 @Data
+<<<<<<< HEAD:src/main/java/com/fiap/idwall/most_wanted/models/WantedFBI.java
 public class WantedFBI {
+=======
+public class Wanted {
+    
+>>>>>>> 85963ef00ccf0e96ebfa20cc00fdfbe21f7a3282:src/main/java/com/fiap/idwall/most_wanted/models/Wanted.java
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", length = 9, nullable = false, unique = true)
