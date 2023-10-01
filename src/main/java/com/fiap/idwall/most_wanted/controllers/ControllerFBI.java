@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fiap.idwall.most_wanted.models.WantedFBI;
-import com.fiap.idwall.most_wanted.services.WebService;
+import com.fiap.idwall.most_wanted.services.WebServiceFbi;
 
 @RestController
 @RequestMapping("/fbi")
 public class ControllerFBI {
 
     @Autowired
-    WebService services;
+    WebServiceFbi services;
 
     @PostMapping()
     public ResponseEntity<WantedFBI> includePerson() throws IOException, InterruptedException {
@@ -42,7 +42,7 @@ public class ControllerFBI {
     }
 
     @GetMapping()
-    public ResponseEntity<List<WantedFBI>> findTerrorists() throws IOException, InterruptedException {
+    public ResponseEntity<List<WantedFBI>> findAll() throws IOException, InterruptedException {
         List<WantedFBI> wanted = services.getAll();
         return ResponseEntity.ok().body(wanted);
     }

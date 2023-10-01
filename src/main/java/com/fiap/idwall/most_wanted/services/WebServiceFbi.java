@@ -17,7 +17,7 @@ import com.fiap.idwall.most_wanted.models.WantedFBI;
 import com.fiap.idwall.most_wanted.repositories.FbiRepository;
 
 @Service
-public class WebService {
+public class WebServiceFbi {
 
     @Value("${fbi.url}")
     public String fbiUrl;
@@ -25,7 +25,7 @@ public class WebService {
     @Autowired
     private FbiRepository repository;
 
-    public List<WantedFBI> WebServiceFbi(String complementUrl) throws IOException, InterruptedException {
+    public List<WantedFBI> ServiceFbi(String complementUrl) throws IOException, InterruptedException {
 
         // Conectar à página da web e definir o User-Agent
         Connection connection = Jsoup.connect(fbiUrl + complementUrl)
@@ -60,7 +60,7 @@ public class WebService {
     public void InsertPersonOnBase(List<String> list) throws IOException, InterruptedException {
 
         for (String url : list) {
-            List<WantedFBI> model = WebServiceFbi(url);
+            List<WantedFBI> model = ServiceFbi(url);
             for (WantedFBI wanted : model) {
                 repository.save(wanted);
             }

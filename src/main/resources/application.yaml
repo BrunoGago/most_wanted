@@ -1,15 +1,18 @@
 fbi:
   url: 'https://www.fbi.gov/wanted'
 
+interpol:
+  url: 'https://www.interpol.int/How-we-work/Notices/Red-Notices/View-Red-Notices'
+  
 spring:
   datasource:
     url: jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
 
-    username: RM94945
-    password: 250599
+    # username: RM94945
+    # password: 250599
 
-    # username: RM93790
-    # password: 290897
+    username: RM93790
+    password: 290897
 
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
